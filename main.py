@@ -9,5 +9,7 @@ if __name__ == "__main__":
             number_of_flowers=100,
         ),
         Garden(),
+        Garden.get_instance(),
+        Garden.get_instance(),
     ]
     print('\n'.join(str(garden) for garden in gardens))

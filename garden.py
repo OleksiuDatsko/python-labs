@@ -1,3 +1,4 @@
+"""This module defines a Garden class representing a garden"""
 class Garden:
     """A class representing a garden.
 
@@ -40,6 +41,8 @@ class Garden:
         self.__has_vegetable_garden = has_vegetable_garden
         self.__number_of_flowers = number_of_flowers
 
+    garden_instance = None
+
     def plant_flower(self, count: int) -> None:
         """
         Adds a specified number of flowers to the garden.
@@ -68,36 +71,78 @@ class Garden:
         self.__area += area
 
     def __str__(self) -> str:
-        return f"area = {self.__area}, has_orchard = {self.__has_orchard}, has_vegetable_garden = {self.__has_vegetable_garden}, number_of_flowers = {self.__number_of_flowers}"
+        return (
+            f"Gardeb(area = {self.__area}, "
+            f"has_orchard = {self.__has_orchard}, "
+            f"has_vegetable_garden = {self.__has_vegetable_garden}, "
+            f"number_of_flowers = {self.__number_of_flowers})"
+        )
 
     @property
-    def area(self):
+    def area(self) -> float:
+        """
+        Get the area of the garden.
+
+        Returns:
+            float: The area of the garden.
+        """
         return self.__area
 
     @area.setter
-    def area(self, new_area):
+    def area(self, new_area: float):
         self.__area = new_area
 
     @property
-    def has_orchard(self):
+    def has_orchard(self) -> bool:
+        """
+        Get if the garden has an orchard.
+
+        Returns:
+            bool: True if the garden has an orchard, False otherwise.
+        """
         return self.__has_orchard
 
     @has_orchard.setter
-    def has_orchard(self, has_orchard):
+    def has_orchard(self, has_orchard: bool):
         self.__has_orchard = has_orchard
 
     @property
-    def has_vegetable_garden(self):
+    def has_vegetable_garden(self) -> bool:
+        """
+        Get if the garden has a vegetable garden.
+
+        Returns:
+            bool: True if the garden has a vegetable garden, False otherwise.
+        """
         return self.__has_vegetable_garden
 
     @has_vegetable_garden.setter
-    def has_vegetable_garden(self, has_orchard):
+    def has_vegetable_garden(self, has_orchard: bool):
         self.__has_vegetable_garden = has_orchard
 
     @property
-    def number_of_flowers(self):
+    def number_of_flowers(self) -> int:
+        """
+        Get the number of flowers in the garden.
+
+        Returns:
+            int: The number of flowers in the garden.
+        """
         return self.__number_of_flowers
 
     @number_of_flowers.setter
-    def number_of_flowers(self, has_orchard):
-        self.__number_of_flowers = has_orchard
+    def number_of_flowers(self, number_of_flowers: int):
+        self.__number_of_flowers = number_of_flowers
+
+    @staticmethod
+    def get_instance():
+        """
+        Return the default instance of the Garden singleton class.
+
+        Returns:
+            Garden: The instance of the Garden singleton class.
+
+        """
+        if Garden.garden_instance is None:
+            Garden.garden_instance = Garden()
+        return Garden.garden_instance

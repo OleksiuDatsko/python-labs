@@ -12,4 +12,6 @@ if __name__ == "__main__":
         Garden.get_instance(),
         Garden.get_instance(),
     ]
-    print('\n'.join(str(garden) for garden in gardens))
+    res = gardens[1:3]
+    print(res)
+    print("\n".join(str(garden) for garden in gardens))

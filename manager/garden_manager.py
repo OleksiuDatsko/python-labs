@@ -1,5 +1,5 @@
 """import abstract class"""
-from  ..models.garden import Garden
+from models.garden import Garden
 
 
 class GardenManager:

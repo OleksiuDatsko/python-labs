@@ -28,7 +28,7 @@ class UniversityGarden(Garden):
             number_of_sculptures (int, optional): The number of sculptures in the garden.
         """
         self.number_of_sculptures = number_of_sculptures
-        super().__init__(area=area)
+        super().__init__(area)
 
     def has_vegetable_garden(self) -> bool:
         """
@@ -47,6 +47,3 @@ class UniversityGarden(Garden):
             bool: False, indicating that it does not have an orchard.
         """
         return False
-
-    def __str__(self, **kwargs) -> str:
-        return super().__str__(class_name=self.__class__.__name__, **self.__dict__)

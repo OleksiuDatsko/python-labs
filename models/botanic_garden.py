@@ -26,7 +26,7 @@ class BotanicGarden(Garden):
             number_of_greenhouses (int, optional): The number of greenhouses in the garden.
         """
         self.number_of_greenhouses = number_of_greenhouses
-        super().__init__(area=area)
+        super().__init__(area)
 
     def has_vegetable_garden(self) -> bool:
         """
@@ -45,6 +45,3 @@ class BotanicGarden(Garden):
             bool: True, it has an orchard.
         """
         return True
-
-    def __str__(self, **kwargs) -> str:
-        return super().__str__(class_name=self.__class__.__name__, **self.__dict__)

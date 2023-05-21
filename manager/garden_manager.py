@@ -20,8 +20,8 @@ class GardenManager:
             Finds all gardens with an orchard.
     """
 
-    def __init__(self, gardens: Garden = None) -> None:
-        self.gardens = list(gardens) if gardens else []
+    def __init__(self, gardens: iter = ()) -> None:
+        self.gardens = list(gardens)
 
     def add_garden(self, garden: Garden) -> None:
         """
@@ -30,17 +30,16 @@ class GardenManager:
         Args:
             garden (Garden): The Garden object to add.
         """
-        self.gardens.append(garden)
+        self.gardens += [garden]
 
-    def add_gardens(self, gardens) -> None:
+    def add_gardens(self, gardens: list[Garden]) -> None:
         """
         Adds multiple Garden objects to the manager.
 
         Args:
             gardens (list): A list of Garden objects.
         """
-        for garden in gardens:
-            self.gardens.append(garden)
+        self.gardens += gardens
 
     def find_all_with_vegetable_garden(self) -> list:
         """
@@ -59,8 +58,8 @@ class GardenManager:
         Returns:
             list: A list of Garden objects with an orchard.
         """
-        # return [garden for garden in self.gardens if garden.has_orchard()]
-        return list(filter(lambda garden: garden.has_orchard(), self.gardens))
+        return [garden for garden in self.gardens if garden.has_orchard()]
+        # return list(filter(lambda garden: garden.has_orchard(), self.gardens))
 
     def __str__(self):
         result = "Garden manager:\n"

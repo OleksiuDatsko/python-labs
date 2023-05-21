@@ -36,7 +36,7 @@ class UrbanGarden(Garden):
         """
         self.number_of_plant_containers = number_of_plant_containers
         self.is_roof_top = is_roof_top
-        super().__init__(area=area)
+        super().__init__(area)
 
     def has_vegetable_garden(self) -> bool:
         """
@@ -55,6 +55,3 @@ class UrbanGarden(Garden):
             bool: False, indicating that it does not have an orchard.
         """
         return False
-
-    def __str__(self, **kwargs) -> str:
-        return super().__str__(class_name=self.__class__.__name__, **self.__dict__)

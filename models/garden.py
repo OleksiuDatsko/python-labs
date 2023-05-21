@@ -47,9 +47,8 @@ class Garden(ABC):
             bool: if garden has orchard
         """
 
-    @abstractmethod
-    def __str__(self, **kwargs) -> str:
-        result = f"{kwargs.pop('class_name', 'Garden')}: "
-        for attributes, values in kwargs.items():
+    def __str__(self) -> str:
+        result = f"{self.__class__.__name__}: "
+        for attributes, values in self.__dict__.items():
             result += f"{attributes} = {values}; "
         return result

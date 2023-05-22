@@ -49,7 +49,6 @@ class GardenManager:
             list: A list of Garden objects with a vegetable garden.
         """
         return [garden for garden in self.gardens if garden.has_vegetable_garden()]
-        # return list(filter(lambda garden: garden.has_vegetable_garden(), self.gardens))
 
     def find_all_with_orchard(self) -> list:
         """
@@ -59,7 +58,6 @@ class GardenManager:
             list: A list of Garden objects with an orchard.
         """
         return [garden for garden in self.gardens if garden.has_orchard()]
-        # return list(filter(lambda garden: garden.has_orchard(), self.gardens))
 
     def __str__(self):
         result = "Garden manager:\n"

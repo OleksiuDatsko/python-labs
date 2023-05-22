@@ -22,7 +22,6 @@ class Garden(ABC):
             The area of the garden in hectars.
     """
 
-    @abstractmethod
     def __init__(
         self,
         area: float = None,

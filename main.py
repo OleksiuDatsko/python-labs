@@ -1,17 +1,27 @@
-from garden import Garden
+"""import all models""" # pylint:
+from models.university_garden import UniversityGarden
+from models.urban_garden import UrbanGarden
+from models.farm_garden import FarmGarden
+from models.botanic_garden import BotanicGarden
+from manager.garden_manager import GardenManager
 
 if __name__ == "__main__":
     gardens = [
-        Garden(
-            area=10.0,
-            has_orchard=True,
-            has_vegetable_garden=False,
-            number_of_flowers=100,
-        ),
-        Garden(),
-        Garden.get_instance(),
-        Garden.get_instance(),
+        UniversityGarden(area=1, number_of_sculptures=100),
+        UrbanGarden(area=2, number_of_plant_containers=10, is_roof_top=True),
+        FarmGarden(area=3, number_of_tractors=10),
+        BotanicGarden(area=4, number_of_greenhouses=10),
     ]
-    res = gardens[1:3]
-    print(res)
-    print("\n".join(str(garden) for garden in gardens))
+    garden_manager = GardenManager(gardens)
+    garden_manager.add_garden(
+        UrbanGarden(area=5, number_of_plant_containers=1, is_roof_top=True)
+    )
+    # garden_manager.add_gardens(gardens)
+    print("== has vegetable garden ==")
+    for garden in garden_manager.find_all_with_vegetable_garden():
+        print(str(garden))
+    print("== has orchard ==")
+    for garden in garden_manager.find_all_with_orchard():
+        print(str(garden))
+    print("== all gardens ==")
+    print(garden_manager)

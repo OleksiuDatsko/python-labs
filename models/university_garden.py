@@ -1,4 +1,9 @@
-"""import abstract class"""
+"""
+This module represents a University Garden.
+
+Class:
+    UniversityGarden: A class representing a University Garden. 
+"""
 from .garden import Garden
 
 

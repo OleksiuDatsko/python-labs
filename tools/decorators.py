@@ -1,4 +1,11 @@
-# pylint: disable=missing-module-docstring
+# pylint: disable=line-too-long
+"""
+This module provides decorators for function and method behavior.
+
+Decorators:
+    limit_calls: A decorator that limits the number of calls to a function.
+    number_of_arguments_in_method: A decorator that counts and prints the number of arguments in a method.
+"""
 from functools import wraps
 from types import FunctionType
 

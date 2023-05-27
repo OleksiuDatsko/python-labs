@@ -1,4 +1,9 @@
-"""import abstract class"""
+"""
+This module represents a manager for gardens.
+
+Classes:
+    GardenManager: A class representing a Garden Manager.
+"""
 from typing import Iterable
 
 from models.garden import Garden
@@ -64,7 +69,7 @@ class GardenManager:
         """
         return [garden for garden in self.gardens if garden.has_orchard()]
 
-    def get_lsit_of_has_orchard(self) -> list[bool]:
+    def get_orchard_status(self) -> list[bool]:
         """
         Returns a list of boolean values indicating whether each garden in manager has an orchard.
 
@@ -81,7 +86,7 @@ class GardenManager:
         Returns:
             list: A list of tuples containing the index and garden object.
         """
-        return list(enumerate(self.gardens))
+        return enumerate(self.gardens)
 
     def get_zip(self):
         """
@@ -90,25 +95,23 @@ class GardenManager:
         Returns:
             list: A list of tuples containing the orchard status and corresponding garden object.
         """
-        return list(zip(self.get_lsit_of_has_orchard(), self.gardens))
+        return zip(self.get_orchard_status(), self.gardens)
 
-    def is_all_have_orchard(self) -> bool:
+    def have_orchard(self) -> dict:
+        # pylint: disable=line-too-long
         """
-        Check if all gardens have an orchard.
-
-        Returns:
-            bool: True if all gardens have an orchard, False otherwise.
-        """
-        return all(self.get_lsit_of_has_orchard())
-
-    def is_at_least_one_have_orchard(self) -> bool:
-        """
-        Check if at least one garden has an orchard.
+        Checks the orchard status of the gardens in the manager and returns a dictionary
+        indicating whether all gardens have an orchard and whether any garden has an orchard.
 
         Returns:
-            bool: True if at least one garden has an orchard, False otherwise.
+            dict: A dictionary with two keys: "all" and "any".
+                  The value corresponding to the key "all" is True if all gardens have an orchard, False otherwise.
+                  The value corresponding to the key "any" is True if at least one garden has an orchard, False otherwise.
         """
-        return any(self.get_lsit_of_has_orchard())
+        return {
+            "all": all(self.get_orchard_status()),
+            "any": any(self.get_orchard_status()),
+        }
 
     def __str__(self) -> str:
         result = "Garden manager:\n"

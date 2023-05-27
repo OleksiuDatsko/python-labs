@@ -1,4 +1,4 @@
-"""import all models"""  # pylint:
+# pylint: disable=missing-module-docstring
 from models.university_garden import UniversityGarden
 from models.urban_garden import UrbanGarden
 from models.farm_garden import FarmGarden
@@ -8,12 +8,10 @@ from manager.garden_set_manager import GardenSetManager
 
 if __name__ == "__main__":
     gardens = [
-        UniversityGarden(area=1.0, number_of_sculptures=100),  # "trees", "sculptures
-        UrbanGarden(
-            area=2.0, number_of_plant_containers=10, is_roof_top=True
-        ),  # "vegetables", "flowers"
-        FarmGarden(area=3.0, number_of_tractors=10),  # "vegetables", "fruit trees"
-        BotanicGarden(area=4.0, number_of_greenhouses=10),  # "flowers", "trees"
+        UniversityGarden(area=1.0, number_of_sculptures=100),
+        UrbanGarden(area=2.0, number_of_plant_containers=10, is_roof_top=True),
+        FarmGarden(area=3.0, number_of_tractors=10),
+        BotanicGarden(area=4.0, number_of_greenhouses=10),
     ]
     garden_manager = GardenManager(gardens)
     garden_manager.add_garden(
@@ -29,7 +27,7 @@ if __name__ == "__main__":
 
     print("\n== has vegetable garden ==")
     for garden in garden_manager.find_all_with_vegetable_garden():
-        print(str(garden))
+        print(garden)
 
     print("\n== has orchard ==")
     for garden in garden_manager.find_all_with_orchard():
@@ -49,8 +47,9 @@ if __name__ == "__main__":
 
     print("\n== all gardens ==")
     print(garden_manager)
-    print(f"\n\nat least one have orchard: {garden_manager.is_at_least_one_have_orchard()}")
-    print(f"all have orchard: {garden_manager.is_all_have_orchard()}")
+    print("\n== have orchard ==")
+    for key, value in garden_manager.have_orchard().items():
+        print(f"{key} => {value}")
     print("\n== set manager ==")
     garden_set_manager = GardenSetManager(garden_manager)
     for garden_set in garden_set_manager:

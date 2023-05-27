@@ -1,4 +1,9 @@
-"""import abstract class"""
+"""
+This module represents a Farm Garden.
+
+Class:
+    FarmGarden: A class representing a Farm Garden. 
+"""
 from .garden import Garden
 
 

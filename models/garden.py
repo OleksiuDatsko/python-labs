@@ -1,6 +1,10 @@
-"""Abstract Base Classes (ABC) module"""
+"""
+This module provides an abstract class representing a garden.
+
+Classes:
+    Garden (ABC): An abstract class representing a garden.
+"""
 from abc import ABC, abstractmethod
-from typing import Type
 
 
 class Garden(ABC):
@@ -46,7 +50,7 @@ class Garden(ABC):
         """
 
     # pylint: disable=line-too-long
-    def get_dict(self, data_type: Type) -> dict:
+    def get_dict(self, data_type: type) -> dict:
         """
         Returns a dictionary containing the keys and values of object's attributes, filtered by a specific data type.
 

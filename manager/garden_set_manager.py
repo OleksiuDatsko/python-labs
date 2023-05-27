@@ -1,10 +1,17 @@
-"""import regular garden manager"""
+# pylint: disable=line-too-long
+"""
+This module contains the `GardenSetManager` 
+
+Classes:
+    GardenSetManager: A class that manages a set of gardens and provides iteration and indexing functionality.
+"""
 from manager.garden_manager import GardenManager
 from models.garden import Garden
 
+
 class GardenSetManager:
     """
-    A class that manages a set of gardens and provides iteration and indexing functionality.
+    A class that manages a flora set in gardens and provides iteration and indexing functionality.
 
     Args:
         garden_manager (GardenManager): An instance of GardenManager for managing the gardens.

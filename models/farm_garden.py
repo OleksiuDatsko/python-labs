@@ -26,7 +26,7 @@ class FarmGarden(Garden):
             number_of_tractors (int, optional): The number of tractors in the garden.
         """
         self.number_of_tractors = number_of_tractors
-        super().__init__(area)
+        super().__init__(area=area, flora_set={"vegetables", "fruit trees"})
 
     def has_vegetable_garden(self) -> bool:
         """

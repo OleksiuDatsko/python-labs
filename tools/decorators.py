@@ -66,7 +66,7 @@ def number_of_arguments_in_method(func):
         Returns:
             The result of the decorated method.
         """
-        print(f"number of arguments in method: {len(args)}")
+        print(f"function {func.__name__} has {len(args)} arguments in method")
         return func(*args, **kwargs)
 
     return inner

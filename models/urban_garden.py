@@ -1,4 +1,9 @@
-"""import abstract class"""
+"""
+This module represents a Urban Garden.
+
+Class:
+    UrbanGarden: A class representing a Urban Garden. 
+"""
 from .garden import Garden
 
 
@@ -36,7 +41,7 @@ class UrbanGarden(Garden):
         """
         self.number_of_plant_containers = number_of_plant_containers
         self.is_roof_top = is_roof_top
-        super().__init__(area)
+        super().__init__(area=area, flora_set={"vegetables", "flowers"})
 
     def has_vegetable_garden(self) -> bool:
         """

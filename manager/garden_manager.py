@@ -7,7 +7,8 @@ Classes:
 from typing import Iterable
 
 from models.garden import Garden
-from tools.decorators import limit_calls, number_of_arguments_in_method
+from tools.decorators import limit_calls, number_of_arguments_in_method, logged
+from tools.exceptions import TooManyCalls
 
 
 class GardenManager:
@@ -31,6 +32,7 @@ class GardenManager:
     def __init__(self, gardens: Iterable = ()) -> None:
         self.gardens = list(gardens)
 
+    @logged(TooManyCalls, mode="console")
     @limit_calls(3)
     def add_garden(self, garden: Garden) -> None:
         """

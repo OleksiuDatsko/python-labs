@@ -22,7 +22,9 @@ class BotanicGarden(Garden):
             Checks if the garden has an orchard.
     """
 
-    def __init__(self, area: float = None, number_of_greenhouses: int = None) -> None:
+    def __init__(
+        self, area: float = None, number_of_greenhouses: int = None, plants: dict = ()
+    ) -> None:
         """
         Initializes a BotanicGarden instance.
 
@@ -31,7 +33,7 @@ class BotanicGarden(Garden):
             number_of_greenhouses (int, optional): The number of greenhouses in the garden.
         """
         self.number_of_greenhouses = number_of_greenhouses
-        super().__init__(area=area, flora_set={"flowers", "trees"})
+        super().__init__(area=area, flora_set={"flowers", "trees"}, plants=plants)
 
     def has_vegetable_garden(self) -> bool:
         """

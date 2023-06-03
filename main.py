@@ -15,7 +15,12 @@ if __name__ == "__main__":
     ]
     garden_manager = GardenManager(gardens)
     garden_manager.add_garden(
-        UrbanGarden(area=5.0, number_of_plant_containers=1, is_roof_top=True)
+        UrbanGarden(
+            area=5.0,
+            number_of_plant_containers=1,
+            is_roof_top=True,
+            plants={"vegetables": 10},
+        )
     )
     garden_manager.add_garden(
         UrbanGarden(area=6.0, number_of_plant_containers=2, is_roof_top=True)
@@ -24,7 +29,9 @@ if __name__ == "__main__":
         UrbanGarden(area=7.0, number_of_plant_containers=3, is_roof_top=True)
     )
     garden_manager.add_gardens(gardens)
-
+    garden_manager[0].plant("trees", 10)
+    # garden_manager[0].remove("trees", 11)
+    # garden_manager[0].remove("tree", 1)
     print("\n== has vegetable garden ==")
     for garden in garden_manager.find_all_with_vegetable_garden():
         print(garden)

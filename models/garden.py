@@ -77,13 +77,13 @@ class Garden(ABC):
         }
 
     @logged(NoPlantInTheGardenException, mode="file")
-    def plant(self, plant_type: str, amount: int) -> None:
+    def plant(self, plant_type: str, number_of_plants: int) -> None:
         """
         Plant a specified number of plants of the given type in the garden.
 
         Args:
             plant_type (str): The type of plant to be planted.
-            amount (int): The number of plants to be planted.
+            number_of_plants (int): The number of plants to be planted.
 
         Raises:
             NoPlantInTheGardenException: If the specified plant type is not available in the garden.
@@ -93,16 +93,16 @@ class Garden(ABC):
         """
         if plant_type not in self.plants.keys():
             raise NoPlantInTheGardenException("There is no place to plant this plant.")
-        self.plants[plant_type] += amount
+        self.plants[plant_type] += number_of_plants
 
     @logged(NotEnoughPlantsException, mode="file")
-    def remove(self, plant_type: str, amount: int) -> None:
+    def remove(self, plant_type: str, number_of_plants: int) -> None:
         """
         Remove a specified number of plants of the given type from the garden.
 
         Args:
             plant_type (str): The type of plant to be removed.
-            amount (int): The number of plants to be removed.
+            number_of_plants (int): The number of plants to be removed.
 
         Raises:
             NoPlantInTheGardenException: If the specified plant type is not available in the garden.
@@ -115,23 +115,11 @@ class Garden(ABC):
             raise NoPlantInTheGardenException(
                 "The specified plant does not exist in the garden."
             )
-        if self.plants[plant_type] < amount:
+        if self.plants[plant_type] < number_of_plants:
             raise NotEnoughPlantsException(
                 "Not enough plants of the specified type in the garden."
             )
-        self.plants[plant_type] -= amount
-
-    def add_flora(self, flora: str) -> None:
-        """
-        Add a new type of flora to the garden.
-
-        Args:
-            flora (str): The type of flora to be added.
-
-        Returns:
-            None
-        """
-        self.plants.update(flora, 0)
+        self.plants[plant_type] -= number_of_plants
 
     def __str__(self) -> str:
         result = f"{self.__class__.__name__}: "

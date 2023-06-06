@@ -30,6 +30,7 @@ class UrbanGarden(Garden):
         area: float = None,
         number_of_plant_containers: int = None,
         is_roof_top: bool = None,
+        plants: dict = (),
     ) -> None:
         """
         Initializes an UrbanGarden instance.
@@ -41,7 +42,7 @@ class UrbanGarden(Garden):
         """
         self.number_of_plant_containers = number_of_plant_containers
         self.is_roof_top = is_roof_top
-        super().__init__(area=area, flora_set={"vegetables", "flowers"})
+        super().__init__(area=area, flora_set={"vegetables", "flowers"}, plants=plants)
 
     def has_vegetable_garden(self) -> bool:
         """

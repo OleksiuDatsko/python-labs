@@ -22,7 +22,9 @@ class FarmGarden(Garden):
             Checks if the garden has an orchard.
     """
 
-    def __init__(self, area: float = None, number_of_tractors: int = None) -> None:
+    def __init__(
+        self, area: float = None, number_of_tractors: int = None, plants: dict = ()
+    ) -> None:
         """
         Initializes a FarmGarden instance.
 
@@ -31,7 +33,9 @@ class FarmGarden(Garden):
             number_of_tractors (int, optional): The number of tractors in the garden.
         """
         self.number_of_tractors = number_of_tractors
-        super().__init__(area=area, flora_set={"vegetables", "fruit trees"})
+        super().__init__(
+            area=area, flora_set={"vegetables", "fruit trees"}, plants=plants
+        )
 
     def has_vegetable_garden(self) -> bool:
         """

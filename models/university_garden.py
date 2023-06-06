@@ -24,7 +24,9 @@ class UniversityGarden(Garden):
             Checks if the garden has an orchard.
     """
 
-    def __init__(self, area: float = None, number_of_sculptures: int = None) -> None:
+    def __init__(
+        self, area: float = None, number_of_sculptures: int = None, plants: dict = ()
+    ) -> None:
         """
         Initializes a UniversityGarden instance.
 
@@ -33,7 +35,7 @@ class UniversityGarden(Garden):
             number_of_sculptures (int, optional): The number of sculptures in the garden.
         """
         self.number_of_sculptures = number_of_sculptures
-        super().__init__(area=area, flora_set={"trees", "sculptures"})
+        super().__init__(area=area, flora_set={"trees", "sculptures"}, plants=plants)
 
     def has_vegetable_garden(self) -> bool:
         """
